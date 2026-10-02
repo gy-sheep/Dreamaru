@@ -229,6 +229,27 @@
             color: #444;
         }
 
+        .app-stores {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .store-link {
+            display: inline-block;
+            padding: 9px 20px;
+            border: 1px solid #2d5fce;
+            border-radius: 10px;
+            color: #2d5fce;
+            font-size: 14px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: background 0.2s;
+        }
+
+        .store-link:hover { background: #eef3ff; }
+
         /* 이미지 자체가 둥근 모서리(투명 배경)라서 컨테이너 클리핑을 끈다 */
         .app-icon-shaped {
             border-radius: 0;
@@ -387,6 +408,10 @@
                     <li>할인 계산</li>
                     <li>BMI 계산</li>
                 </ul>
+                <div class="app-stores">
+                    <a class="store-link" href="https://apps.apple.com/app/id6760986879" target="_blank" rel="noopener">App Store</a>
+                    <a class="store-link" href="https://play.google.com/store/apps/details?id=com.dreamaru.calcmate" target="_blank" rel="noopener">Google Play</a>
+                </div>
             </div>
         </div>
         <div class="app-card">
@@ -405,6 +430,9 @@
                     <li>다중 통화 지원</li>
                     <li>엑셀 가져오기·내보내기</li>
                 </ul>
+                <div class="app-stores">
+                    <a class="store-link" href="https://apps.apple.com/app/id6791184111" target="_blank" rel="noopener">App Store</a>
+                </div>
             </div>
         </div>
         <div class="app-card">
