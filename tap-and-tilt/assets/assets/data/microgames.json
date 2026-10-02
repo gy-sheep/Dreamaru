@@ -1,0 +1,30 @@
+{
+  "microgames": [
+    {
+      "id": "toilet_paper",
+      "order": 1,
+      "input": ["touch"],
+      "instructionKey": "microgame.toilet_paper.instruction",
+      "exaggeration": "result",
+      "timeLimitSec": 5.0,
+      "params": {
+        "totalLength": 4480,
+        "gainBoost": 0.8,
+        "gainSpeedLow": 300,
+        "gainSpeedHigh": 2000,
+        "maxPaperSpeed": 3000,
+        "velocitySmoothingTau": 0.05,
+        "inertiaTau": 0.35,
+        "frictionDecel": 800,
+        "spinVisualScale": 0.3,
+        "pileScale": null
+      },
+      "badges": {
+        "metric": "clearTimeMs",
+        "bronze": null,
+        "silver": null,
+        "gold": null
+      }
+    }
+  ]
+}
