@@ -229,12 +229,10 @@
             color: #444;
         }
 
-        .app-icon-placeholder {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: #eef3ff;
-            font-size: 56px;
+        /* 이미지 자체가 둥근 모서리(투명 배경)라서 컨테이너 클리핑을 끈다 */
+        .app-icon-shaped {
+            border-radius: 0;
+            overflow: visible;
         }
 
         .app-link {
@@ -410,7 +408,9 @@
             </div>
         </div>
         <div class="app-card">
-            <div class="app-icon app-icon-placeholder" role="img" aria-label="난리법석! Tap &amp; Tilt 아이콘">&#129531;</div>
+            <div class="app-icon app-icon-shaped">
+                <img src="images/tap_and_tilt_icon.png" alt="난리법석! Tap &amp; Tilt 앱 아이콘">
+            </div>
             <div class="app-info">
                 <h3>난리법석! Tap &amp; Tilt</h3>
                 <span class="app-badge">Web &middot; 프로토타입</span>
