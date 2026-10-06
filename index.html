@@ -1,487 +1,135 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dreamaru - 드리마루</title>
-    <meta name="description" content="Dreamaru(드리마루)는 일상을 더 편리하게 만드는 모바일 애플리케이션을 개발합니다.">
-    <meta name="google-site-verification" content="eZzRFa4nFHOa6bKlsagZR7yyP4B6WAA296_MBRUZWnk" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dreamaru - 드리마루</title>
+<meta name="description" content="Dreamaru(드리마루)는 일상을 더 편리하게 만드는 모바일 애플리케이션을 개발합니다.">
+<meta name="google-site-verification" content="eZzRFa4nFHOa6bKlsagZR7yyP4B6WAA296_MBRUZWnk" />
+<style>
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Noto+Serif+KR:wght@400;500;600;700;900&display=swap");
+:root{--ink:#1c1b19;--mute:#6f6b63;--line:#dedad0;--bg:#f7f5ef;--bg2:#efebe0;--acc:#7a5c2e}
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
+body{font-family:"Noto Sans KR",sans-serif;background:var(--bg);color:var(--ink);line-height:1.75;font-weight:300;word-break:keep-all;overflow-wrap:break-word}
+a{color:inherit;text-decoration:none}ul{list-style:none}.serif{font-family:"Noto Serif KR",serif}
+.wrap{max-width:1180px;margin:0 auto;padding:0 32px}.wrap.narrow{max-width:760px}
+.b-apple{height:40px;width:auto;display:block}.b-google{height:52px;width:auto;display:block;margin:-6px 0}
+.stores{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:24px}
+.btn{display:inline-block;padding:12px 26px;border-radius:999px;font-size:15px;font-weight:500;transition:.2s}
+.btn.primary{background:var(--ink);color:var(--bg)}.btn.primary:hover{background:var(--acc)}
+.btn.ghost{border:1px solid var(--ink)}.btn.ghost:hover{background:var(--ink);color:var(--bg)}
+.app-icon img{width:100%;height:100%;object-fit:cover;border-radius:24%;display:block}.app-icon.shaped img{border-radius:0;object-fit:contain}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}.chips li{font-size:13px;padding:3px 13px;border:1px solid var(--line);border-radius:999px;color:var(--mute);transition:.3s}
+/* header */
+header.site{position:sticky;top:0;z-index:50;background:rgba(247,245,239,.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+header.site .wrap{display:flex;justify-content:space-between;align-items:center;height:68px}
+.brand{display:flex;align-items:center;gap:10px}.brand img{width:32px;height:32px;border-radius:8px}.brand span{font-weight:600;font-size:19px;letter-spacing:.02em}
+nav a{margin-left:28px;font-size:14px;font-weight:500;color:var(--mute)}nav a:hover{color:var(--ink)}
+/* hero */
+.hero{padding:140px 0 120px;border-bottom:1px solid var(--line)}
+.eyebrow{font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:var(--acc);font-weight:500;margin-bottom:28px}
+.hero h1{font-weight:600;font-size:60px;line-height:1.25;letter-spacing:-.01em}.hero h1 em{font-style:normal;color:var(--acc)}
+.lead{max-width:520px;margin-top:32px;font-size:17px;color:var(--mute)}.cta{margin-top:44px;display:flex;gap:12px}
+.hero.c{text-align:center;padding:60px 0 0;border:0}
+.hero.c .orn{color:var(--acc);letter-spacing:.6em;font-size:14px;margin:60px 0 20px}
+.hero.c h1.big{font-size:clamp(54px,10vw,128px);font-weight:500;letter-spacing:.03em;line-height:1.05;color:var(--ink)}
+.hero.c h2{font-weight:400;font-size:20px;margin-top:22px;color:var(--mute)}.hero.c .lead{margin:26px auto 0;max-width:480px}
+.hero.c .rule{height:7px;border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);margin-top:90px}
+/* section head */
+section{padding:100px 0}.hero+section{padding-top:110px}
+.sec-head{display:grid;grid-template-columns:120px 1fr;grid-template-areas:"i h" ". p";margin-bottom:56px}
+.sec-head .idx{grid-area:i;font-size:13px;color:var(--acc);padding-top:30px;letter-spacing:.1em}
+.sec-head h2{grid-area:h;font-size:64px;font-weight:600;line-height:1.3}.sec-head p{grid-area:p;color:var(--mute);margin-top:6px}
+.cat-t{font-size:13px;letter-spacing:.3em;text-transform:uppercase;font-weight:500;color:var(--acc);text-align:center;margin-bottom:64px}
+.lab.grp{margin-top:96px}
+/* index rows */
+.lab{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--acc);padding-bottom:18px;border-bottom:1px solid var(--ink);display:flex;justify-content:space-between}
+.row{display:grid;grid-template-columns:70px 1.1fr 84px 1.5fr;gap:28px;align-items:start;padding:44px 20px;border-bottom:1px solid var(--line);transition:background .3s,color .3s}
+.row:hover{background:var(--ink);color:var(--bg)}.row:hover .no,.row:hover .tg,.row:hover .ds p{color:#b9b3a4}.row:hover .chips li{border-color:#4a4740;color:#b9b3a4}
+.row:hover .btn.primary{background:var(--bg);color:var(--ink)}
+.no{font-size:14px;color:var(--acc);padding-top:10px}
+.nm h3{font-size:clamp(26px,3vw,38px);font-weight:700;line-height:1.15;letter-spacing:-.02em}.tg{display:block;margin-top:10px;font-size:13px;color:var(--mute);letter-spacing:.06em}
+.row .app-icon{width:84px;height:84px}.ds p{font-size:15px;color:var(--mute)}
+/* plates */
+.plate{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;margin-bottom:96px}.plate:nth-child(even) .frame{order:2}
+.frame{position:relative;aspect-ratio:1/.82;background:var(--bg2);outline:1px solid var(--ink);outline-offset:-14px;display:flex;align-items:center;justify-content:center}
+.frame .app-icon{width:40%;filter:drop-shadow(0 18px 24px rgba(60,45,20,.22))}
+.fig{position:absolute;left:28px;bottom:26px;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--mute)}
+.cap h3{font-size:40px;font-weight:600;line-height:1.2;margin-bottom:16px}
+.pf{display:flex;gap:22px;align-items:baseline;margin-bottom:18px;font-size:14px}.pf b{font-weight:500;color:var(--acc);letter-spacing:.14em;text-transform:uppercase;font-size:11px}
+.cap p{color:var(--mute);font-size:15px}
+.dev{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--acc);margin:90px 0 18px;padding-bottom:18px;border-bottom:1px solid var(--ink);display:flex;justify-content:space-between}
+/* closing + card + contact */
+.closing{padding:100px 0 0}.cardsec{padding:20px 0 100px}.hero.c h2{margin-bottom:0}.hero:not(.c) .cta{margin-top:40px}
+.k{font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:var(--acc);margin-bottom:28px;display:flex;gap:16px;align-items:center}.k::after{content:"";height:1px;flex:1;background:var(--line)}
+.cl{font-size:clamp(20px,2.6vw,26px);line-height:1.9;font-weight:400;color:#3a3833}
+.sig{font-size:30px;margin-top:28px;color:var(--acc)}
+.card{padding:34px 0;border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;font-size:15px}
+.card b{display:block;font-size:22px;font-weight:600;margin-bottom:2px}.card a{color:var(--acc);border-bottom:1px solid;font-size:17px}
+.contact.flat{padding-left:0;max-width:720px;margin:0 auto}
+.contact{padding-left:120px;max-width:840px}.contact div{display:flex;gap:24px;padding:18px 0;border-top:1px solid var(--line)}.contact div:last-child{border-bottom:1px solid var(--line)}
+.contact dt{min-width:80px;font-size:14px;color:var(--mute)}.contact a{color:var(--acc);border-bottom:1px solid}
+footer{padding:40px 0 56px;font-size:13px;color:var(--mute);border-top:1px solid var(--line)}footer .tm{margin-top:6px;font-size:12px}footer a:hover{color:var(--ink)}
+@media(max-width:820px){.wrap{padding:0 20px}.lab{gap:16px;font-size:11px;letter-spacing:.16em}.lab span:last-child{flex-shrink:0}nav a{margin-left:14px;font-size:13px}nav a:last-child{display:none}
+ .hero{padding:80px 0}.hero h1{font-size:36px}.sec-head{grid-template-columns:1fr;grid-template-areas:"i" "h" "p"}.sec-head .idx{padding:0 0 8px}.sec-head h2{font-size:40px}
+ .row{grid-template-columns:1fr;gap:16px;padding:36px 12px}.plate{grid-template-columns:1fr;gap:30px}.plate:nth-child(even) .frame{order:0}.contact{padding-left:0}}
 
-        body {
-            font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
-            color: #1a1a2e;
-            line-height: 1.7;
-            background: #fafafa;
-        }
-
-        /* Header */
-        header {
-            background: #fff;
-            border-bottom: 1px solid #eee;
-            padding: 16px 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        .container {
-            max-width: 960px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            text-decoration: none;
-        }
-
-        .logo img {
-            width: 36px;
-            height: 36px;
-            border-radius: 8px;
-        }
-
-        .logo-text {
-            font-size: 22px;
-            font-weight: 700;
-            color: #3a4a5c;
-        }
-
-        .logo-text span {
-            color: #666;
-            font-weight: 400;
-            font-size: 14px;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: #555;
-            margin-left: 28px;
-            font-size: 15px;
-            font-weight: 500;
-            transition: color 0.2s;
-        }
-
-        .nav-links a:hover { color: #2d5fce; }
-
-        /* Hero */
-        .hero {
-            padding: 80px 0 60px;
-            text-align: center;
-        }
-
-        .hero-logo {
-            width: 100px;
-            height: 100px;
-            border-radius: 24px;
-            margin-bottom: 24px;
-        }
-
-        .hero h1 {
-            font-size: 36px;
-            font-weight: 700;
-            margin-bottom: 20px;
-            color: #1a1a2e;
-        }
-
-        .hero p {
-            font-size: 18px;
-            color: #555;
-            max-width: 560px;
-            margin: 0 auto;
-        }
-
-        /* Section */
-        section { padding: 60px 0; }
-
-        .section-title {
-            font-size: 26px;
-            font-weight: 700;
-            margin-bottom: 12px;
-            color: #1a1a2e;
-        }
-
-        .section-subtitle {
-            font-size: 16px;
-            color: #777;
-            margin-bottom: 40px;
-        }
-
-        /* About */
-        .about {
-            background: #fff;
-            border-top: 1px solid #eee;
-            border-bottom: 1px solid #eee;
-        }
-
-        .about-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 32px;
-            margin-top: 32px;
-        }
-
-        .about-item {
-            text-align: center;
-            padding: 24px 16px;
-        }
-
-        .about-icon {
-            width: 56px;
-            height: 56px;
-            background: #eef3ff;
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 16px;
-            font-size: 24px;
-        }
-
-        .about-item h3 {
-            font-size: 17px;
-            font-weight: 600;
-            margin-bottom: 8px;
-        }
-
-        .about-item p {
-            font-size: 14px;
-            color: #666;
-        }
-
-        /* App Card */
-        .app-card {
-            background: #fff;
-            border: 1px solid #e8e8e8;
-            border-radius: 16px;
-            padding: 40px;
-            display: flex;
-            gap: 40px;
-            align-items: center;
-        }
-
-        .app-card + .app-card {
-            margin-top: 24px;
-        }
-
-        .app-icon {
-            width: 120px;
-            height: 120px;
-            border-radius: 28px;
-            flex-shrink: 0;
-            overflow: hidden;
-        }
-
-        .app-icon img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .app-info h3 {
-            font-size: 24px;
-            font-weight: 700;
-            margin-bottom: 8px;
-        }
-
-        .app-badge {
-            display: inline-block;
-            background: #eef3ff;
-            color: #2d5fce;
-            font-size: 13px;
-            font-weight: 500;
-            padding: 4px 12px;
-            border-radius: 20px;
-            margin-bottom: 16px;
-        }
-
-        .app-info p {
-            font-size: 15px;
-            color: #555;
-            margin-bottom: 12px;
-        }
-
-        .app-features {
-            list-style: none;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-top: 16px;
-        }
-
-        .app-features li {
-            background: #f5f5f5;
-            padding: 6px 14px;
-            border-radius: 8px;
-            font-size: 13px;
-            color: #444;
-        }
-
-        .app-stores {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 20px;
-        }
-
-        .app-stores { align-items: center; }
-
-        .store-badge {
-            display: inline-flex;
-            align-items: center;
-            line-height: 0;
-        }
-
-        /* 스토어 공식 배지는 비율과 모양을 바꾸지 않는다. 높이만 맞춘다. */
-        .badge-apple { height: 40px; width: auto; display: block; }
-
-        /* Google 배지 PNG는 위아래 투명 여백(각 29/250)이 있어 보이는 높이를 40px에 맞춘다 */
-        .badge-google { height: 52px; width: auto; display: block; margin: -6px 0; }
-
-        /* 이미지 자체가 둥근 모서리(투명 배경)라서 컨테이너 클리핑을 끈다 */
-        .app-icon-shaped {
-            border-radius: 0;
-            overflow: visible;
-        }
-
-        .app-link {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 10px 24px;
-            background: #2d5fce;
-            color: #fff;
-            border-radius: 10px;
-            font-size: 15px;
-            font-weight: 500;
-            text-decoration: none;
-            transition: background 0.2s;
-        }
-
-        .app-link:hover { background: #244ca6; }
-
-        /* Contact */
-        .contact {
-            background: #fff;
-            border-top: 1px solid #eee;
-            border-bottom: 1px solid #eee;
-        }
-
-        .contact-info {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            margin-top: 24px;
-        }
-
-        .contact-row {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-size: 15px;
-            color: #444;
-        }
-
-        .contact-row strong {
-            min-width: 60px;
-            color: #1a1a2e;
-        }
-
-        .contact-row a {
-            color: #2d5fce;
-            text-decoration: none;
-        }
-
-        .contact-row a:hover { text-decoration: underline; }
-
-        /* Footer */
-        footer {
-            padding: 32px 0;
-            text-align: center;
-        }
-
-        footer p {
-            font-size: 13px;
-            color: #999;
-        }
-
-        footer a {
-            color: #2d5fce;
-            text-decoration: none;
-        }
-
-        footer a:hover { text-decoration: underline; }
-
-        footer .trademark { margin-top: 6px; font-size: 12px; }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 28px; }
-            .hero p { font-size: 16px; }
-            .about-grid { grid-template-columns: 1fr; gap: 16px; }
-            .app-card { flex-direction: column; text-align: center; padding: 28px; }
-            .app-features { justify-content: center; }
-            .nav-links a { margin-left: 16px; font-size: 14px; }
-        }
-    </style>
+.langsw{display:inline-flex;gap:10px;margin-left:36px;font-size:14px;font-weight:500;letter-spacing:.1em;align-items:center}
+.langsw>span{color:var(--mute);opacity:.55}
+.langsw button{background:none;border:0;font:inherit;letter-spacing:inherit;color:var(--mute);cursor:pointer;padding:6px 4px;border-bottom:1px solid transparent;transition:color .2s,border-color .2s}
+.langsw button:hover{color:var(--ink);border-bottom-color:rgba(122,92,46,.45)}.langsw button[aria-pressed="true"]{color:var(--ink);border-bottom-color:var(--acc)}
+@media(max-width:820px){.langsw{margin-left:14px;gap:6px}}
+footer .pp{margin-top:6px}.rp{font-size:13px;color:var(--mute);border-bottom:1px solid var(--line);margin-left:6px;transition:.3s}.rp:hover{color:var(--ink);border-color:var(--ink)}.row:hover .rp{color:#b9b3a4;border-color:#4a4740}.row:hover .rp:hover{color:#fff;border-color:#fff}footer .pp a{border-bottom:1px solid var(--line)}footer .pp a:hover{border-color:var(--ink)}</style>
 </head>
 <body>
+<header class="site"><div class="wrap"><a href="#" class="brand"><img src="images/logo.png" alt="Dreamaru 로고"><span class="serif">Dreamaru</span></a>
+<nav><a href="#apps" data-i18n="nav.apps">서비스</a><a href="#contact" data-i18n="nav.contact">연락처</a>
+<span class="langsw"><button data-set="ko" aria-pressed="true">KO</button><span>/</span><button data-set="en" aria-pressed="false">EN</button></span></nav></div></header>
 
-<header>
-    <div class="container">
-        <nav>
-            <a href="index.html" class="logo">
-                <img src="images/logo.png" alt="Dreamaru 로고">
-                <div class="logo-text">Dreamaru<span>(드리마루)</span></div>
-            </a>
-            <div class="nav-links">
-                <a href="#about">소개</a>
-                <a href="#apps">서비스</a>
-                <a href="#contact">연락처</a>
-                <a href="privacy.html">개인정보처리방침</a>
-            </div>
-        </nav>
-    </div>
-</header>
+<section class="hero"><div class="wrap"><p class="eyebrow">Mobile Application Studio</p>
+<h1 class="serif"><span data-i18n="hero.h1">일상을 더 편리하게,</span><br><em>Dreamaru</em></h1>
+<div class="cta"><a class="btn primary" href="#apps" data-i18n="cta.apps">서비스 보기</a><a class="btn ghost" href="#contact" data-i18n="cta.contact">문의하기</a></div></div></section>
 
-<section class="hero">
-    <div class="container">
-        <img src="images/logo.png" alt="Dreamaru" class="hero-logo">
-        <h1>일상을 더 편리하게,<br>Dreamaru</h1>
-        <p>드리마루는 일상 속의 편리함을 추구합니다. 누구나 쉽고 빠르게 사용할 수 있는 모바일 애플리케이션을 만들고 있습니다.</p>
-    </div>
-</section>
+<section id="apps"><div class="wrap"><h2 class="cat-t serif">Catalogue of Works</h2>
+<div class="lab"><span>Released</span><span>02</span></div><article class="row"><span class="no">01</span>
+<div class="nm"><h3 class="serif">CalcMate</h3><span class="tg">iOS · Android</span></div><div class="app-icon"><img src="images/calcmate_icon.png" alt="CalcMate 앱 아이콘"></div>
+<div class="ds"><p data-i18n="c.desc">생활 속 계산을 하나로 해결하는 올인원 계산기 앱입니다. 기본 계산기부터 환율, 단위 변환, 세금 계산, 나이 계산, 날짜 계산까지 10가지 이상의 계산기를 하나의 앱에서 제공합니다.</p><ul class="chips"><li data-i18n="c.0">기본 계산기</li><li data-i18n="c.1">환율 변환</li><li data-i18n="c.2">단위 변환</li><li data-i18n="c.3">세금 계산</li><li data-i18n="c.4">나이 계산</li><li data-i18n="c.5">날짜 계산</li><li data-i18n="c.6">할인 계산</li><li data-i18n="c.7">BMI 계산</li></ul><div class="stores"><a href="https://apps.apple.com/app/id6760986879" target="_blank" rel="noopener"><img class="b-apple" src="images/badges/app-store-badge-ko.svg" data-ko="images/badges/app-store-badge-ko.svg" data-en="images/badges/app-store-badge-en.svg" alt="App Store에서 다운로드" data-i18n-alt="alt.apple"></a><a href="https://play.google.com/store/apps/details?id=com.dreamaru.calcmate" target="_blank" rel="noopener"><img class="b-google" src="images/badges/google-play-badge-ko.png" data-ko="images/badges/google-play-badge-ko.png" data-en="images/badges/google-play-badge-en.png" alt="Google Play에서 다운로드" data-i18n-alt="alt.google"></a></div></div></article><article class="row"><span class="no">02</span>
+<div class="nm"><h3 class="serif">InOut Stock</h3><span class="tg">iOS · Android</span></div><div class="app-icon"><img src="images/inoutstock_icon.png" alt="InOut Stock 앱 아이콘"></div>
+<div class="ds"><p data-i18n="i.desc">주식 매수·매도 기록을 남기고 손익을 자동으로 계산해주는 앱입니다. 종목별 매매 회차를 기록하면 건별 수익액·수익률은 물론 일간·월간·연간 통계까지 한눈에 확인할 수 있습니다.</p><ul class="chips"><li data-i18n="i.0">매수·매도 기록</li><li data-i18n="i.1">손익·수익률 계산</li><li data-i18n="i.2">일간·월간·연간 통계</li><li data-i18n="i.3">다중 통화 지원</li><li data-i18n="i.4">엑셀 가져오기·내보내기</li></ul><div class="stores"><a href="https://apps.apple.com/app/id6791184111" target="_blank" rel="noopener"><img class="b-apple" src="images/badges/app-store-badge-ko.svg" data-ko="images/badges/app-store-badge-ko.svg" data-en="images/badges/app-store-badge-en.svg" alt="App Store에서 다운로드" data-i18n-alt="alt.apple"></a><a href="https://play.google.com/store/apps/details?id=com.dreamaru.inoutstock" target="_blank" rel="noopener"><img class="b-google" src="images/badges/google-play-badge-ko.png" data-ko="images/badges/google-play-badge-ko.png" data-en="images/badges/google-play-badge-en.png" alt="Google Play에서 다운로드" data-i18n-alt="alt.google"></a></div></div></article>
+<div class="lab grp"><span>In Development · Playable Prototype</span><span>01</span></div><article class="row"><span class="no">03</span>
+<div class="nm"><h3 class="serif">난리법석! Tap &amp; Tilt</h3><span class="tg" data-i18n="t.tag">Web · 프로토타입</span></div><div class="app-icon shaped"><img src="images/tap_and_tilt_icon.png" alt="난리법석! Tap &amp; Tilt 앱 아이콘"></div>
+<div class="ds"><p data-i18n="t.desc">일상 속 물건과 상황을 보고, 한 가지 동작을 빠르게 해서 클리어하는 짧은 스테이지 게임입니다. 첫 스테이지 “두루마리 휴지 풀기”를 지금 브라우저에서 바로 체험할 수 있습니다.</p><ul class="chips"><li data-i18n="t.0">터치 · 마우스 드래그</li><li data-i18n="t.1">짧은 스테이지</li><li data-i18n="t.2">설치 없이 플레이</li></ul><div class="stores"><a class="btn primary" href="tap-and-tilt/" data-i18n="t.play">게임 해 보기 →</a></div></div></article></div></section>
 
-<section class="about" id="about">
-    <div class="container">
-        <h2 class="section-title">About Us</h2>
-        <p class="section-subtitle">드리마루가 추구하는 가치</p>
-        <div class="about-grid">
-            <div class="about-item">
-                <div class="about-icon">&#9881;</div>
-                <h3>실용적인 도구</h3>
-                <p>복잡한 기능보다 매일 쓰는 기능을 정말 잘 만드는 데 집중합니다. 실생활에서 바로 쓸 수 있는 도구를 제공합니다.</p>
-            </div>
-            <div class="about-item">
-                <div class="about-icon">&#9999;</div>
-                <h3>직관적인 디자인</h3>
-                <p>설명이 필요 없는 인터페이스를 지향합니다. 누구나 처음 열어도 바로 사용할 수 있도록 설계합니다.</p>
-            </div>
-            <div class="about-item">
-                <div class="about-icon">&#128274;</div>
-                <h3>프라이버시 우선</h3>
-                <p>사용자의 개인정보를 소중히 여깁니다. 불필요한 데이터 수집 없이 서비스를 제공합니다.</p>
-            </div>
-        </div>
-    </div>
-</section>
+<section id="contact"><div class="wrap"><h2 class="cat-t serif">Contact</h2><dl class="contact flat">
+<div><dt data-i18n="ct.name">상호</dt><dd data-i18n="ct.nameV">Dreamaru 드리마루</dd></div>
+<div><dt data-i18n="ct.mail">이메일</dt><dd><a href="mailto:dreamaru.lab@gmail.com">dreamaru.lab@gmail.com</a></dd></div>
+<div><dt data-i18n="ct.loc">소재지</dt><dd data-i18n="ct.locV">대한민국</dd></div></dl></div></section>
 
-<section id="apps">
-    <div class="container">
-        <h2 class="section-title">Our Apps</h2>
-        <p class="section-subtitle">드리마루가 만드는 서비스</p>
-        <div class="app-card">
-            <div class="app-icon">
-                <img src="images/calcmate_icon.png" alt="CalcMate 앱 아이콘">
-            </div>
-            <div class="app-info">
-                <h3>CalcMate</h3>
-                <span class="app-badge">iOS &middot; Android</span>
-                <p>생활 속 계산을 하나로 해결하는 올인원 계산기 앱입니다. 기본 계산기부터 환율, 단위 변환, 세금 계산, 나이 계산, 날짜 계산까지 10가지 이상의 계산기를 하나의 앱에서 제공합니다.</p>
-                <p>복잡한 계산도 몇 번의 터치만으로 빠르고 정확하게 결과를 확인할 수 있습니다.</p>
-                <ul class="app-features">
-                    <li>기본 계산기</li>
-                    <li>환율 변환</li>
-                    <li>단위 변환</li>
-                    <li>세금 계산</li>
-                    <li>나이 계산</li>
-                    <li>날짜 계산</li>
-                    <li>할인 계산</li>
-                    <li>BMI 계산</li>
-                </ul>
-                <div class="app-stores">
-                    <a class="store-badge" href="https://apps.apple.com/app/id6760986879" target="_blank" rel="noopener"><img class="badge-apple" src="images/badges/app-store-badge-ko.svg" alt="App Store에서 다운로드"></a>
-                    <a class="store-badge" href="https://play.google.com/store/apps/details?id=com.dreamaru.calcmate" target="_blank" rel="noopener"><img class="badge-google" src="images/badges/google-play-badge-ko.png" alt="Google Play에서 다운로드"></a>
-                </div>
-            </div>
-        </div>
-        <div class="app-card">
-            <div class="app-icon">
-                <img src="images/inoutstock_icon.png" alt="InOut Stock 앱 아이콘">
-            </div>
-            <div class="app-info">
-                <h3>InOut Stock</h3>
-                <span class="app-badge">iOS &middot; Android</span>
-                <p>주식 매수·매도 기록을 남기고 손익을 자동으로 계산해주는 앱입니다. 종목별 매매 회차를 기록하면 건별 수익액·수익률은 물론 일간·월간·연간 통계까지 한눈에 확인할 수 있습니다.</p>
-                <p>엑셀로 관리하던 매매 기록을 앱 하나로 정리하고, 계산은 앱에 맡기세요.</p>
-                <ul class="app-features">
-                    <li>매수·매도 기록</li>
-                    <li>손익·수익률 계산</li>
-                    <li>일간·월간·연간 통계</li>
-                    <li>다중 통화 지원</li>
-                    <li>엑셀 가져오기·내보내기</li>
-                </ul>
-                <div class="app-stores">
-                    <a class="store-badge" href="https://apps.apple.com/app/id6791184111" target="_blank" rel="noopener"><img class="badge-apple" src="images/badges/app-store-badge-ko.svg" alt="App Store에서 다운로드"></a>
-                    <a class="store-badge" href="https://play.google.com/store/apps/details?id=com.dreamaru.inoutstock" target="_blank" rel="noopener"><img class="badge-google" src="images/badges/google-play-badge-ko.png" alt="Google Play에서 다운로드"></a>
-                </div>
-            </div>
-        </div>
-        <div class="app-card">
-            <div class="app-icon app-icon-shaped">
-                <img src="images/tap_and_tilt_icon.png" alt="난리법석! Tap &amp; Tilt 앱 아이콘">
-            </div>
-            <div class="app-info">
-                <h3>난리법석! Tap &amp; Tilt</h3>
-                <span class="app-badge">Web &middot; 프로토타입</span>
-                <p>일상 속 물건과 상황을 보고, 한 가지 동작을 빠르게 해서 클리어하는 짧은 스테이지 게임입니다.</p>
-                <p>첫 스테이지 &ldquo;두루마리 휴지 풀기&rdquo;를 지금 브라우저에서 바로 체험할 수 있습니다. 개발 중인 프로토타입이라 내용이 바뀔 수 있습니다.</p>
-                <ul class="app-features">
-                    <li>터치 · 마우스 드래그</li>
-                    <li>짧은 스테이지</li>
-                    <li>설치 없이 플레이</li>
-                </ul>
-                <a class="app-link" href="tap-and-tilt/">게임 해 보기</a>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="contact" id="contact">
-    <div class="container">
-        <h2 class="section-title">Contact</h2>
-        <p class="section-subtitle">문의사항이 있으시면 언제든 연락해 주세요</p>
-        <div class="contact-info">
-            <div class="contact-row">
-                <strong>상호</strong> Dreamaru 드리마루
-            </div>
-            <div class="contact-row">
-                <strong>이메일</strong> <a href="mailto:dreamaru.lab@gmail.com">dreamaru.lab@gmail.com</a>
-            </div>
-            <div class="contact-row">
-                <strong>소재지</strong> 대한민국
-            </div>
-        </div>
-    </div>
-</section>
-
-<footer>
-    <div class="container">
-        <p>&copy; 2025 Dreamaru. All rights reserved. &middot; <a href="privacy.html">개인정보처리방침</a></p>
-        <p class="trademark">Apple, App Store는 Apple Inc.의 상표입니다. Google Play 및 Google Play 로고는 Google LLC의 상표입니다.</p>
-    </div>
-</footer>
-
+<footer><div class="wrap"><p data-i18n="ft.copy">© 2025 Dreamaru. All rights reserved.</p>
+<p class="tm" data-i18n="ft.tm">Apple, App Store는 Apple Inc.의 상표입니다. Google Play 및 Google Play 로고는 Google LLC의 상표입니다.</p></div></footer>
+<script>
+const EN = {"nav.apps": "Apps", "nav.contact": "Contact", "hero.h1": "Making everyday life easier,", "cta.apps": "View apps", "cta.contact": "Contact us", "c.desc": "An all-in-one calculator app that handles everyday calculations in one place. From the basic calculator to currency exchange, unit conversion, tax, age and date calculators — more than 10 calculators in a single app.", "c.0": "Basic calculator", "c.1": "Currency exchange", "c.2": "Unit converter", "c.3": "Tax calculator", "c.4": "Age calculator", "c.5": "Date calculator", "c.6": "Discount calculator", "c.7": "BMI calculator", "i.desc": "An app that records your stock buys and sells and calculates profit and loss automatically. Log each trade for every ticker to see profit and return per trade, plus daily, monthly and yearly statistics at a glance.", "i.0": "Buy &amp; sell records", "i.1": "Profit &amp; return calculation", "i.2": "Daily · monthly · yearly stats", "i.3": "Multi-currency support", "i.4": "Excel import &amp; export", "t.tag": "Web · Prototype", "t.desc": "A short-stage game where you read an everyday object or situation and clear it with one quick action. Try the first stage, “Unroll the toilet paper,” right in your browser.", "t.0": "Touch · mouse drag", "t.1": "Short stages", "t.2": "No install needed", "t.play": "Play the game →", "ct.name": "Company", "ct.mail": "Email", "ct.loc": "Location", "ct.nameV": "Dreamaru", "ct.locV": "South Korea", "ft.copy": "© 2025 Dreamaru. All rights reserved.", "ft.tm": "Apple and App Store are trademarks of Apple Inc. Google Play and the Google Play logo are trademarks of Google LLC.", "rp": "Privacy Policy", "alt.apple": "Download on the App Store", "alt.google": "Get it on Google Play", "ft.pp.c": "CalcMate Privacy Policy", "ft.pp.i": "InOut Stock Privacy Policy", "meta.title": "Dreamaru", "meta.desc": "Dreamaru builds mobile apps that make everyday life easier."};
+const $$ = (s) => document.querySelectorAll(s);
+$$("[data-i18n]").forEach(e => e.dataset.ko = e.innerHTML);
+$$("[data-i18n-alt]").forEach(e => e.dataset.altKo = e.alt);
+const metaDesc = document.querySelector('meta[name="description"]');
+const KO_TITLE = document.title, KO_DESC = metaDesc.content;
+function setLang(l) {
+  const en = l === "en";
+  $$("[data-i18n]").forEach(e => { e.innerHTML = en ? EN[e.dataset.i18n] : e.dataset.ko; });
+  $$("[data-i18n-alt]").forEach(e => { e.alt = en ? EN[e.dataset.i18nAlt] : e.dataset.altKo; });
+  $$("img[data-en]").forEach(e => { e.src = en ? e.dataset.en : e.dataset.ko; });
+  $$("a[data-href-en]").forEach(e => { e.href = en ? e.dataset.hrefEn : e.dataset.hrefKo; });
+  $$(".langsw button").forEach(b => b.setAttribute("aria-pressed", b.dataset.set === l));
+  document.documentElement.lang = l;
+  document.title = en ? EN["meta.title"] : KO_TITLE;
+  metaDesc.content = en ? EN["meta.desc"] : KO_DESC;
+  try { localStorage.setItem("lang", l); } catch (e) {}
+}
+let saved = null;
+try { saved = localStorage.getItem("lang"); } catch (e) {}
+setLang(saved || ((navigator.language || "ko").toLowerCase().startsWith("ko") ? "ko" : "en"));
+$$(".langsw button").forEach(b => b.addEventListener("click", () => setLang(b.dataset.set)));
+</script>
 </body>
 </html>
