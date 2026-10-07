@@ -69065,7 +69065,7 @@ lc(a){return B.b.A(A.c(["en","ko"],t.s),a.gbW())},
 kk(a){return!1}}
 A.CE.prototype={
 gOB(){return"Pull!"},
-gOC(){return"Toss it in!"},
+gOC(){return"Push!"},
 gPC(){return"Next stage"},
 gPD(){return"One more time"},
 gPA(){return"Cleared!"},
@@ -69076,7 +69076,7 @@ gEo(){return"Couldn't load the stage."},
 gEp(){return"Unknown stage."}}
 A.CF.prototype={
 gOB(){return"\ub2f9\uaca8!"},
-gOC(){return"\ub123\uc5b4!"},
+gOC(){return"\ubc00\uc5b4!"},
 gPC(){return"\ub2e4\uc74c \uc2a4\ud14c\uc774\uc9c0"},
 gPD(){return"\ud55c \ubc88 \ub354"},
 gPA(){return"\ud074\ub9ac\uc5b4!"},
