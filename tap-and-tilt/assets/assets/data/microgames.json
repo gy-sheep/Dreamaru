@@ -38,8 +38,8 @@
       "params": {
         "goalsToClear": 5,
         "frictionDecel": 600,
-        "speedGain": 0.5,
-        "distCapGain": 12,
+        "speedGain": 0.75,
+        "distCapGain": 30,
         "minLaunch": 120,
         "maxLaunch": 900,
         "minDragDist": 20,
