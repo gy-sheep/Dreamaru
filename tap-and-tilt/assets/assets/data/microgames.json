@@ -47,13 +47,13 @@
         "binRadius": 36,
         "binMaxEntrySpeed": 600,
         "trashRadius": 14,
-        "binDistMin": 140,
-        "binDistMax": 400,
-        "binAngleMaxDeg": 70,
+        "spawnDistMin": 140,
+        "spawnDistMax": 400,
+        "spawnAngleMaxDeg": 70,
         "minDistDelta": 50,
         "minAngleDeltaDeg": 12,
-        "binMargin": 70,
-        "startBottomMargin": 90
+        "binAnchorYFraction": 0.25,
+        "trashMargin": 30
       },
       "badges": {
         "metric": "clearTimeMs",
