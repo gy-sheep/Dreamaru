@@ -9,7 +9,7 @@
       "exaggeration": "result",
       "timeLimitSec": 5.0,
       "params": {
-        "totalLength": 4480,
+        "totalLength": 6000,
         "gainBoost": 0.8,
         "gainSpeedLow": 300,
         "gainSpeedHigh": 2000,
@@ -54,6 +54,32 @@
         "minAngleDeltaDeg": 12,
         "binAnchorYFraction": 0.25,
         "trashMargin": 30
+      },
+      "badges": {
+        "metric": "clearTimeMs",
+        "bronze": null,
+        "silver": null,
+        "gold": null
+      }
+    },
+    {
+      "id": "nose_hair",
+      "order": 3,
+      "input": ["touch"],
+      "titleKey": "microgame.nose_hair.title",
+      "instructionKey": "microgame.nose_hair.instruction",
+      "exaggeration": "result",
+      "timeLimitSec": 5.0,
+      "params": {
+        "hairsToClear": 5,
+        "growSeconds": 1.8,
+        "spawnGapMin": 0.6,
+        "spawnGapMax": 1.0,
+        "regrowDelayMin": 0.3,
+        "regrowDelayMax": 0.8,
+        "minGrabLength": 60,
+        "grabRadius": 44,
+        "pluckDistance": 90
       },
       "badges": {
         "metric": "clearTimeMs",
