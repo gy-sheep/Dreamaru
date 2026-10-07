@@ -25,6 +25,40 @@
         "silver": null,
         "gold": null
       }
+    },
+    {
+      "id": "trash_throw",
+      "order": 2,
+      "input": ["touch"],
+      "instructionKey": "microgame.trash_throw.instruction",
+      "exaggeration": "none",
+      "timeLimitSec": 10.0,
+      "params": {
+        "goalsToClear": 5,
+        "frictionDecel": 600,
+        "speedGain": 0.5,
+        "distCapGain": 12,
+        "minLaunch": 120,
+        "maxLaunch": 900,
+        "minDragDist": 20,
+        "releaseWindowSec": 0.08,
+        "binRadius": 36,
+        "binMaxEntrySpeed": 600,
+        "trashRadius": 14,
+        "binDistMin": 140,
+        "binDistMax": 400,
+        "binAngleMaxDeg": 70,
+        "minDistDelta": 50,
+        "minAngleDeltaDeg": 12,
+        "binMargin": 70,
+        "startBottomMargin": 90
+      },
+      "badges": {
+        "metric": "clearTimeMs",
+        "bronze": null,
+        "silver": null,
+        "gold": null
+      }
     }
   ]
 }
