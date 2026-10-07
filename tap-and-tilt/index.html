@@ -31,8 +31,58 @@
 
   <title>난리법석! Tap & Tilt</title>
   <link rel="manifest" href="manifest.json">
+  <!-- 로딩 스플래시(외부 요청 없음). 색은 여기에만 모은다. -->
+  <style>
+    :root {
+      --splash-top: #7fd3ff;
+      --splash-bottom: #fdd6ea;
+      --splash-text: #4a3b73;
+      --splash-dot: #ff7eb6;
+    }
+    html, body { margin: 0; height: 100%; background: var(--splash-top); }
+    #splash {
+      position: fixed; inset: 0; z-index: 1000;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      background: linear-gradient(var(--splash-top), var(--splash-bottom));
+      color: var(--splash-text); font-family: sans-serif;
+      transition: opacity 0.3s ease-out;
+    }
+    #splash.hide { opacity: 0; pointer-events: none; }
+    #splash .title { font-size: 28px; font-weight: 700; }
+    #splash .dots { display: flex; gap: 10px; margin-top: 18px; }
+    #splash .dots i {
+      width: 12px; height: 12px; border-radius: 50%; background: var(--splash-dot);
+      animation: splash-bounce 1s ease-in-out infinite;
+    }
+    #splash .dots i:nth-child(2) { animation-delay: 0.15s; }
+    #splash .dots i:nth-child(3) { animation-delay: 0.3s; }
+    @keyframes splash-bounce {
+      0%, 60%, 100% { transform: translateY(0); }
+      30% { transform: translateY(-10px); }
+    }
+    @media (prefers-reduced-motion: reduce) { #splash .dots i { animation: none; } }
+  </style>
 </head>
 <body>
+  <div id="splash" aria-hidden="true">
+    <div class="title">난리법석!</div>
+    <div class="dots"><i></i><i></i><i></i></div>
+  </div>
+  <script>
+    // Flutter 첫 프레임 뒤 스플래시를 걷어 낸다. 이벤트가 오지 않아도 10초 뒤엔 제거한다.
+    (function () {
+      var splash = document.getElementById('splash');
+      var removed = false;
+      function remove() {
+        if (removed) return;
+        removed = true;
+        splash.classList.add('hide');
+        setTimeout(function () { splash.remove(); }, 400);
+      }
+      window.addEventListener('flutter-first-frame', remove);
+      setTimeout(remove, 10000);
+    })();
+  </script>
   <!--
     You can customize the "flutter_bootstrap.js" script.
     This is useful to provide a custom configuration to the Flutter loader
