@@ -7,7 +7,7 @@
       "titleKey": "microgame.toilet_paper.title",
       "instructionKey": "microgame.toilet_paper.instruction",
       "exaggeration": "result",
-      "timeLimitSec": 5.0,
+      "timeLimitSec": 4.0,
       "params": {
         "totalLength": 6000,
         "gainBoost": 0.8,
@@ -72,7 +72,7 @@
       "timeLimitSec": 5.0,
       "params": {
         "hairsToClear": 5,
-        "growSeconds": 1.8,
+        "growSeconds": 1.5,
         "spawnGapMin": 0.6,
         "spawnGapMax": 1.0,
         "regrowDelayMin": 0.3,
