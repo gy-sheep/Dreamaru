@@ -3,7 +3,9 @@
     {
       "id": "toilet_paper",
       "order": 1,
-      "input": ["touch"],
+      "input": [
+        "touch"
+      ],
       "titleKey": "microgame.toilet_paper.title",
       "instructionKey": "microgame.toilet_paper.instruction",
       "exaggeration": "result",
@@ -30,7 +32,9 @@
     {
       "id": "trash_throw",
       "order": 2,
-      "input": ["touch"],
+      "input": [
+        "touch"
+      ],
       "titleKey": "microgame.trash_throw.title",
       "instructionKey": "microgame.trash_throw.instruction",
       "exaggeration": "none",
@@ -65,7 +69,9 @@
     {
       "id": "nose_hair",
       "order": 3,
-      "input": ["touch"],
+      "input": [
+        "touch"
+      ],
       "titleKey": "microgame.nose_hair.title",
       "instructionKey": "microgame.nose_hair.instruction",
       "exaggeration": "result",
@@ -80,6 +86,45 @@
         "minGrabLength": 60,
         "grabRadius": 44,
         "pluckDistance": 90
+      },
+      "badges": {
+        "metric": "clearTimeMs",
+        "bronze": null,
+        "silver": null,
+        "gold": null
+      }
+    },
+    {
+      "id": "slingshot_bird",
+      "order": 4,
+      "input": [
+        "touch"
+      ],
+      "titleKey": "microgame.slingshot_bird.title",
+      "instructionKey": "microgame.slingshot_bird.instruction",
+      "exaggeration": "result",
+      "timeLimitSec": 10.0,
+      "params": {
+        "birdsToClear": 3,
+        "reloadSec": 0.3,
+        "minPull": 24,
+        "maxPull": 120,
+        "gravity": 500,
+        "minReachFraction": 0.4,
+        "grabRadius": 90,
+        "slingYFraction": 0.76,
+        "bandTopFraction": 0.12,
+        "bandBottomFraction": 0.34,
+        "birdSpeed": 150,
+        "birdSpeedGrowth": 0.1,
+        "maxBirds": 2,
+        "midFraction": 0.5,
+        "spawnChanceAtMid": 0.6,
+        "birdRadius": 26,
+        "hitRadius": 30,
+        "stoneRadius": 12,
+        "hitEffectSec": 0.4,
+        "aimDotCount": 8
       },
       "badges": {
         "metric": "clearTimeMs",
