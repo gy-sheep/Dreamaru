@@ -64,6 +64,9 @@
         "bronze": null,
         "silver": null,
         "gold": null
+      },
+      "web": {
+        "order": 7
       }
     },
     {
@@ -125,6 +128,89 @@
         "stoneRadius": 12,
         "hitEffectSec": 0.4,
         "aimDotCount": 8
+      },
+      "badges": {
+        "metric": "clearTimeMs",
+        "bronze": null,
+        "silver": null,
+        "gold": null
+      }
+    },
+    {
+      "id": "plank_bridge",
+      "order": 5,
+      "input": [
+        "tilt"
+      ],
+      "titleKey": "microgame.plank_bridge.title",
+      "instructionKey": "microgame.plank_bridge.instruction",
+      "exaggeration": "result",
+      "timeLimitSec": 15.0,
+      "params": {
+        "bends": 6,
+        "bridgeWidth": 44,
+        "edgeSlack": 0.15,
+        "maxSpeed": 220,
+        "responseSec": 0.08,
+        "deadZoneDeg": 3,
+        "fullTiltDeg": 30,
+        "minSegment": 90,
+        "minHorizontalRun": 110,
+        "minRowGap": 88,
+        "sideMargin": 60,
+        "verticalMargin": 110,
+        "maxLengthFactor": 0.6,
+        "pathMaxAttempts": 40,
+        "goalRadius": 36
+      },
+      "badges": {
+        "metric": "clearTimeMs",
+        "bronze": null,
+        "silver": null,
+        "gold": null
+      },
+      "web": {
+        "enabled": false
+      }
+    },
+    {
+      "id": "bubble_pop",
+      "order": 6,
+      "input": [
+        "touch"
+      ],
+      "titleKey": "microgame.bubble_pop.title",
+      "instructionKey": "microgame.bubble_pop.instruction",
+      "exaggeration": "result",
+      "timeLimitSec": 10.0,
+      "params": {
+        "bubblesToClear": 12,
+        "missesToFail": 3,
+        "spawnIntervalMin": 0.3,
+        "spawnIntervalMax": 0.7,
+        "maxBubbles": 14,
+        "burstChance": 0.7,
+        "burstMin": 2,
+        "burstMax": 3,
+        "burstGapMin": 0.05,
+        "burstGapMax": 0.15,
+        "originSpreadX": 14,
+        "spawnFloorPerSec": 1.5,
+        "rampSec": 2.0,
+        "rampStartScale": 2.0,
+        "riseSpeedMin": 220,
+        "riseSpeedMax": 340,
+        "swayAmplitudeMin": 40,
+        "swayAmplitudeMax": 120,
+        "swayPeriodMin": 2.0,
+        "swayPeriodMax": 3.4,
+        "swayRampDistance": 120,
+        "radiusMin": 28,
+        "radiusMax": 42,
+        "hitSlack": 8,
+        "ringYFraction": 0.82,
+        "appearSec": 0.3,
+        "popEffectSec": 0.45
       },
       "badges": {
         "metric": "clearTimeMs",
