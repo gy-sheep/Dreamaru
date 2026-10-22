@@ -1,0 +1,229 @@
+{
+ "canvas": [
+  144,
+  300
+ ],
+ "offset": [
+  8,
+  76
+ ],
+ "base": {
+  "sky": "back_sky.png",
+  "far_ridge": "far_ridge.png",
+  "haze": "haze.png",
+  "near_ridge": "near_ridge.png",
+  "ground": "ground.png",
+  "mist": "mist.png",
+  "vignette": "vignette.png"
+ },
+ "traits": {
+  "moon": {
+   "layer": "trait_moon.png",
+   "hint": "hint_moon.png"
+  },
+  "star": {
+   "layer": "trait_star.png",
+   "hint": "hint_star.png"
+  },
+  "rainbow": {
+   "layer": "trait_rainbow.png",
+   "hint": "hint_rainbow.png"
+  },
+  "snow": {
+   "layer": "trait_snow.png",
+   "hint": "hint_snow.png"
+  },
+  "forest": {
+   "layer": "trait_forest.png",
+   "hint": "hint_forest.png"
+  },
+  "water": {
+   "layer": "trait_water.png",
+   "hint": "hint_water.png"
+  },
+  "fire": {
+   "layer": "trait_fire.png",
+   "hint": "hint_fire.png"
+  },
+  "earth": {
+   "layer": "trait_earth.png",
+   "hint": "hint_earth.png"
+  },
+  "cloud": {
+   "hint": "hint_cloud.png"
+  },
+  "wind": {
+   "hint": "hint_wind.png"
+  }
+ },
+ "fire_glow": "fire_glow.png",
+ "clouds": [
+  {
+   "file": "cloud_a.png",
+   "x": 85,
+   "y": 102,
+   "w": 46,
+   "h": 26,
+   "speed": 1.3
+  },
+  {
+   "file": "cloud_b.png",
+   "x": 5,
+   "y": 168,
+   "w": 46,
+   "h": 26,
+   "speed": 0.9
+  },
+  {
+   "file": "cloud_c.png",
+   "x": 97,
+   "y": 166,
+   "w": 46,
+   "h": 26,
+   "speed": 1.1
+  }
+ ],
+ "wind": {
+  "file": "wind.png",
+  "x": 36,
+  "y": 126,
+  "w": 78,
+  "h": 30
+ },
+ "flame": {
+  "frames": [
+   "flame_0.png",
+   "flame_1.png",
+   "flame_2.png"
+  ],
+  "x": 16,
+  "y": 246,
+  "cx": 32,
+  "cy": 272
+ },
+ "stars": [
+  {
+   "x": 80,
+   "y": 88,
+   "ray": 3
+  },
+  {
+   "x": 112,
+   "y": 104,
+   "ray": 2
+  },
+  {
+   "x": 58,
+   "y": 122,
+   "ray": 2
+  },
+  {
+   "x": 126,
+   "y": 126,
+   "ray": 3
+  },
+  {
+   "x": 20,
+   "y": 150,
+   "ray": 2
+  },
+  {
+   "x": 96,
+   "y": 116,
+   "ray": 2
+  },
+  {
+   "x": 4,
+   "y": 46,
+   "ray": 2
+  },
+  {
+   "x": 68,
+   "y": 26,
+   "ray": 3
+  },
+  {
+   "x": 126,
+   "y": 36,
+   "ray": 2
+  }
+ ],
+ "pond": {
+  "cx": 74,
+  "cy": 270,
+  "rx": 30,
+  "ry": 11
+ },
+ "fairies": [
+  {
+   "file": "mini_moon.png",
+   "trait": "moon",
+   "form": "adult_female",
+   "x": 58,
+   "y": 108
+  },
+  {
+   "file": "mini_star.png",
+   "trait": "star",
+   "form": "child_boy",
+   "x": 78,
+   "y": 102
+  },
+  {
+   "file": "mini_cloud.png",
+   "trait": "cloud",
+   "form": "adult_female",
+   "x": 114,
+   "y": 106
+  },
+  {
+   "file": "mini_wind.png",
+   "trait": "wind",
+   "form": "elder_female",
+   "x": 38,
+   "y": 136
+  },
+  {
+   "file": "mini_rainbow.png",
+   "trait": "rainbow",
+   "form": "child_girl",
+   "x": 32,
+   "y": 174
+  },
+  {
+   "file": "mini_snow.png",
+   "trait": "snow",
+   "form": "child_boy",
+   "x": 124,
+   "y": 150
+  },
+  {
+   "file": "mini_forest.png",
+   "trait": "forest",
+   "form": "elder_male",
+   "x": 100,
+   "y": 204
+  },
+  {
+   "file": "mini_earth.png",
+   "trait": "earth",
+   "form": "adult_male",
+   "x": 124,
+   "y": 258
+  },
+  {
+   "file": "mini_fire.png",
+   "trait": "fire",
+   "form": "adult_male",
+   "x": 54,
+   "y": 256
+  },
+  {
+   "file": "mini_water.png",
+   "trait": "water",
+   "form": "child_girl",
+   "x": 74,
+   "y": 248
+  }
+ ]
+}
