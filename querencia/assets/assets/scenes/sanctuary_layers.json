@@ -156,70 +156,70 @@
  },
  "fairies": [
   {
-   "file": "mini_moon.png",
+   "file": "mini_moon_adult_female.png",
    "trait": "moon",
    "form": "adult_female",
    "x": 58,
    "y": 108
   },
   {
-   "file": "mini_star.png",
+   "file": "mini_star_child_boy.png",
    "trait": "star",
    "form": "child_boy",
    "x": 78,
    "y": 102
   },
   {
-   "file": "mini_cloud.png",
+   "file": "mini_cloud_adult_female.png",
    "trait": "cloud",
    "form": "adult_female",
    "x": 114,
    "y": 106
   },
   {
-   "file": "mini_wind.png",
+   "file": "mini_wind_elder_female.png",
    "trait": "wind",
    "form": "elder_female",
    "x": 38,
    "y": 136
   },
   {
-   "file": "mini_rainbow.png",
+   "file": "mini_rainbow_child_girl.png",
    "trait": "rainbow",
    "form": "child_girl",
    "x": 32,
    "y": 174
   },
   {
-   "file": "mini_snow.png",
+   "file": "mini_snow_child_boy.png",
    "trait": "snow",
    "form": "child_boy",
    "x": 124,
    "y": 150
   },
   {
-   "file": "mini_forest.png",
+   "file": "mini_forest_elder_male.png",
    "trait": "forest",
    "form": "elder_male",
    "x": 100,
    "y": 204
   },
   {
-   "file": "mini_earth.png",
+   "file": "mini_earth_adult_male.png",
    "trait": "earth",
    "form": "adult_male",
    "x": 124,
    "y": 258
   },
   {
-   "file": "mini_fire.png",
+   "file": "mini_fire_adult_male.png",
    "trait": "fire",
    "form": "adult_male",
    "x": 54,
    "y": 256
   },
   {
-   "file": "mini_water.png",
+   "file": "mini_water_child_girl.png",
    "trait": "water",
    "form": "child_girl",
    "x": 74,
