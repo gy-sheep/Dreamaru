@@ -270,7 +270,7 @@
         "startPadRadius": 45,
         "goalPadRadius": 30,
         "padSquash": 0.62,
-        "landRadiusScale": 0.7,
+        "landRadiusScale": 0.75,
         "jumpSec": 0.45,
         "tiltMinDeg": 15,
         "tiltMaxDeg": 50,
