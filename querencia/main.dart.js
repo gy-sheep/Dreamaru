@@ -73979,7 +73979,7 @@ if(s)q.zv()
 if(p.e>=0.999999999&&p.w>=4&&!q.c_){q.c_=!0
 r=q.gKv()
 if(r!=null){s=r.a
-q.eL=new A.O9(r,"joy","\uc548\ub155, \ub098\ub294 "+A.i(B.qU.i(0,s))+"\uc758 \uc694\uc815\uc774\uc57c. "+A.i(B.Gr.i(0,s))+" \ub098\uc640 \ud568\uaed8 \uc548\uc2dd\ucc98\ub97c \ucc44\uc6cc \ubcf4\uc790.",12)}}},
+q.eL=new A.O9(r,"joy","\uc548\ub155, \ub098\ub294 "+A.i(B.qU.i(0,s))+"\uc758 \uc694\uc815\uc774\uc57c. "+A.i(B.Gr.i(0,s))+" \ub098\uc640 \ud568\uaed8 \uc6b0\ub9ac\uc758 \uc548\uc2dd\ucc98\ub97c \uac00\uafd4 \ubcf4\uc9c0 \uc54a\uc744\ub798?",12)}}},
 zv(){var s=this.of
 if(s)return
 this.of=!0
