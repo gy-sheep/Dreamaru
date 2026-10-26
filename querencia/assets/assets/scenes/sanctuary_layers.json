@@ -305,8 +305,8 @@
  },
  "stars": [
   {
-   "x": 328,
-   "y": 164,
+   "x": 330,
+   "y": 184,
    "ray": 3,
    "side": 1
   },
@@ -474,8 +474,8 @@
    "file": "mini_star_child_boy.png",
    "trait": "star",
    "form": "child_boy",
-   "x": 328,
-   "y": 168,
+   "x": 326,
+   "y": 184,
    "side": 1
   },
   {
