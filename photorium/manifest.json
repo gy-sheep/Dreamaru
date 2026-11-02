@@ -1,6 +1,6 @@
 {
-    "name": "Pocket Museum",
-    "short_name": "Pocket Museum",
+    "name": "Photorium",
+    "short_name": "Photorium",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#1E1E22",
