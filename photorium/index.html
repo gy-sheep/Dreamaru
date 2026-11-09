@@ -29,11 +29,10 @@
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="favicon.png"/>
 
-  <!-- 임시(2026-11-09): 카카오톡 등에서 링크가 청첩장 카드로 보이게 하는 미리보기 정보. 서버가 없어서 초대마다 다르게 못 하므로
-       이 주소의 모든 초대에 같은 카드가 나온다. 결혼식이 끝나면 아래 태그와 web/invite_card.png를 지운다. -->
+  <!-- 카카오톡 등에서 링크가 카드로 보이게 하는 미리보기 정보. 서버가 없어서 초대마다 다르게 못 하므로 이 주소의 모든 초대에 같은 카드가 나온다. -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="강열 &amp; 윤정 결혼합니다">
-  <meta property="og:description" content="2026.11.14(토) 오후 1:00 · 저희 두 사람, 부부의 연을 맺습니다.">
+  <meta property="og:title" content="포토리움 갤러리에 초대합니다">
+  <meta property="og:description" content="소중한 순간이 담긴 사진들을 직접 둘러보며 감상해 보세요.">
   <meta property="og:image" content="https://gy-sheep.github.io/Dreamaru/photorium/invite_card.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -42,38 +41,36 @@
   <link rel="manifest" href="manifest.json">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600&display=swap">
   <style>
-  /* 임시(2026-11-09) 청첩장 첫 화면: 링크에 ?invite=가 있을 때만 보인다. 결혼식이 끝나면 이 블록과 아래 script를 지운다. */
-  #wedding-landing{position:fixed;inset:0;z-index:99999;display:none;align-items:center;justify-content:center;
+  /* 초대 링크 첫 화면: 링크에 ?invite=가 있을 때만 보인다. */
+  #invite-landing{position:fixed;inset:0;z-index:99999;display:none;align-items:center;justify-content:center;
     background:#F4F2ED;color:#27261F;font-family:'Noto Serif KR','AppleMyungjo','Nanum Myeongjo',Georgia,serif;
     transition:opacity .5s ease}
-  #wedding-landing.show{display:flex}
-  #wedding-landing.hide{opacity:0;pointer-events:none}
-  #wedding-landing .frame{box-sizing:border-box;width:min(86vw,420px);padding:6px;border:1px solid #9C8560}
-  #wedding-landing .inner{border:1px solid rgba(156,133,96,.45);padding:44px 24px 38px;text-align:center}
-  #wedding-landing .eyebrow{font:500 11px/1 -apple-system,'Helvetica Neue',sans-serif;letter-spacing:.32em;color:#9C8560}
-  #wedding-landing .names{margin:26px 0 0;font-size:40px;font-weight:600;letter-spacing:.04em;line-height:1.25}
-  #wedding-landing .rule{width:34px;height:1px;background:#9C8560;margin:22px auto}
-  #wedding-landing .lead{font-size:15px;line-height:1.8;letter-spacing:.02em}
-  #wedding-landing .label{margin-top:30px;font-size:20px;font-weight:600;letter-spacing:.08em}
-  #wedding-landing .date{margin-top:10px;font-size:16px;color:#9C8560;font-weight:600;letter-spacing:.04em}
-  #wedding-landing .invite{margin-top:28px;font-size:22px;font-weight:600;letter-spacing:.1em}
-  #wedding-landing button{margin-top:34px;width:100%;padding:16px 0;border:0;border-radius:14px;background:#27261F;color:#F4F2ED;
+  #invite-landing.show{display:flex}
+  #invite-landing.hide{opacity:0;pointer-events:none}
+  #invite-landing .frame{box-sizing:border-box;width:min(86vw,420px);padding:6px;border:1px solid #9C8560}
+  #invite-landing .inner{border:1px solid rgba(156,133,96,.45);padding:44px 24px 38px;text-align:center}
+  #invite-landing .eyebrow{font:500 11px/1 -apple-system,'Helvetica Neue',sans-serif;letter-spacing:.32em;color:#9C8560}
+  #invite-landing .names{margin:26px 0 0;font-size:40px;font-weight:600;letter-spacing:.04em;line-height:1.25}
+  #invite-landing .rule{width:34px;height:1px;background:#9C8560;margin:22px auto}
+  #invite-landing .lead{font-size:15px;line-height:1.8;letter-spacing:.02em}
+  #invite-landing .label{margin-top:30px;font-size:20px;font-weight:600;letter-spacing:.08em}
+  #invite-landing .date{margin-top:10px;font-size:16px;color:#9C8560;font-weight:600;letter-spacing:.04em}
+  #invite-landing .invite{margin-top:28px;font-size:22px;font-weight:600;letter-spacing:.1em}
+  #invite-landing button{margin-top:34px;width:100%;padding:16px 0;border:0;border-radius:14px;background:#27261F;color:#F4F2ED;
     font:600 16px/1 -apple-system,'Helvetica Neue',sans-serif;letter-spacing:.04em;cursor:pointer}
-  #wedding-landing .note{margin-top:14px;font:400 12px/1.5 -apple-system,'Helvetica Neue',sans-serif;color:#7A756A}
+  #invite-landing .note{margin-top:14px;font:400 12px/1.5 -apple-system,'Helvetica Neue',sans-serif;color:#7A756A}
   </style>
 </head>
 <body>
-  <div id="wedding-landing" aria-label="청첩장">
+
+  <div id="invite-landing" aria-label="초대장">
     <div class="frame"><div class="inner">
-      <div class="eyebrow">WEDDING INVITATION</div>
-      <h1 class="names">강열 &amp; 윤정</h1>
+      <div class="eyebrow">PHOTORIUM · INVITATION</div>
+      <h1 class="names">갤러리에<br>초대합니다</h1>
       <div class="rule"></div>
-      <div class="lead">저희 두 사람,<br>부부의 연을 맺습니다.</div>
-      <div class="label">웨딩 데이</div>
-      <div class="date">2026.11.14(토) 오후 1:00</div>
-      <div class="invite">초대합니다</div>
-      <button type="button" id="wedding-enter">갤러리 입장하기</button>
-      <div class="note">두 사람의 사진 갤러리를 걸어 다니며 구경해 보세요</div>
+      <div class="lead">소중한 순간이 담긴 사진들을<br>직접 둘러보며 감상해 보세요</div>
+      <button type="button" id="invite-enter">갤러리 입장하기</button>
+      <div class="note">앱 설치 없이 바로 볼 수 있어요</div>
     </div></div>
   </div>
 
@@ -88,12 +85,12 @@
   <script src="flutter_bootstrap.js" async></script>
 
   <script>
-    // 임시(2026-11-09) 청첩장 첫 화면. 링크에 invite=가 있을 때만 띄우고, 버튼을 누르면 사라진다.
+    // 초대 링크 첫 화면. 링크에 invite=가 있을 때만 띄우고, 버튼을 누르면 사라진다.
     (function () {
       if (!/[?&]invite=/.test(location.search)) return;
-      var el = document.getElementById('wedding-landing');
+      var el = document.getElementById('invite-landing');
       el.className = 'show';
-      document.getElementById('wedding-enter').onclick = function () {
+      document.getElementById('invite-enter').onclick = function () {
         el.className = 'show hide';
         setTimeout(function () { el.style.display = 'none'; }, 600);
       };
