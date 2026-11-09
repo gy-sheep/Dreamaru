@@ -29,11 +29,12 @@
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="favicon.png"/>
 
-  <!-- 카카오톡 등에서 링크가 카드로 보이게 하는 미리보기 정보. 서버가 없어서 초대마다 다르게 못 하므로 이 주소의 모든 초대에 같은 카드가 나온다. -->
+  <!-- 카카오톡 등에서 링크가 카드로 보이게 하는 미리보기 정보. 서버가 없어서 초대마다 다르게 못 하므로 이 주소의 모든 초대에 같은 카드가 나온다.
+       카톡은 이미지를 주소별로 오래 기억하므로 카드 이미지를 바꿀 때는 파일 이름(_v2, _v3…)을 바꾼다. -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="포토리움 갤러리에 초대합니다">
   <meta property="og:description" content="소중한 순간이 담긴 사진들을 직접 둘러보며 감상해 보세요.">
-  <meta property="og:image" content="https://gy-sheep.github.io/Dreamaru/photorium/invite_card.png">
+  <meta property="og:image" content="https://gy-sheep.github.io/Dreamaru/photorium/invite_card_v2.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
@@ -53,6 +54,8 @@
   #invite-landing .names{margin:26px 0 0;font-size:40px;font-weight:600;letter-spacing:.04em;line-height:1.25}
   #invite-landing .rule{width:34px;height:1px;background:#9C8560;margin:22px auto}
   #invite-landing .lead{font-size:15px;line-height:1.8;letter-spacing:.02em}
+  #invite-landing .deadline{display:none;margin-top:22px;font-size:15px;font-weight:600;letter-spacing:.03em;color:#9C8560}
+  #invite-landing .deadline.on{display:block}
   #invite-landing .label{margin-top:30px;font-size:20px;font-weight:600;letter-spacing:.08em}
   #invite-landing .date{margin-top:10px;font-size:16px;color:#9C8560;font-weight:600;letter-spacing:.04em}
   #invite-landing .invite{margin-top:28px;font-size:22px;font-weight:600;letter-spacing:.1em}
@@ -69,6 +72,7 @@
       <h1 class="names">갤러리에<br>초대합니다</h1>
       <div class="rule"></div>
       <div class="lead">소중한 순간이 담긴 사진들을<br>직접 둘러보며 감상해 보세요</div>
+      <div class="deadline" id="invite-deadline"></div>
       <button type="button" id="invite-enter">갤러리 입장하기</button>
       <div class="note">앱 설치 없이 바로 볼 수 있어요</div>
     </div></div>
@@ -90,6 +94,19 @@
       if (!/[?&]invite=/.test(location.search)) return;
       var el = document.getElementById('invite-landing');
       el.className = 'show';
+      // 링크에 until(만료 시각, UTC 초)이 있으면 "○월 ○일 ○시까지 볼 수 있어요"를 보여 준다. 표시용일 뿐이고 실제로 막는 것은 초대 파일 안의 만료 시각이다.
+      var m = /[?&]until=(\d{9,11})(?:[&#]|$)/.exec(location.search);
+      if (m) {
+        var d = new Date(Number(m[1]) * 1000);
+        if (d.getTime() > Date.now()) {
+          var h = d.getHours(), min = d.getMinutes();
+          var t = (d.getMonth() + 1) + '월 ' + d.getDate() + '일 ' + (h < 12 ? '오전' : '오후') + ' ' +
+                  (h % 12 || 12) + '시' + (min ? ' ' + min + '분' : '');
+          var box = document.getElementById('invite-deadline');
+          box.textContent = t + '까지 볼 수 있어요';
+          box.className = 'deadline on';
+        }
+      }
       document.getElementById('invite-enter').onclick = function () {
         el.className = 'show hide';
         setTimeout(function () { el.style.display = 'none'; }, 600);
