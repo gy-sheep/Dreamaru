@@ -18,7 +18,7 @@
 
   <meta charset="UTF-8">
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
-  <meta name="description" content="내 사진으로 꾸미는 나만의 갤러리를 1인칭으로 둘러보는 웹 프로토타입">
+  <meta name="description" content="내 사진으로 꾸미는 나만의 갤러리를 1인칭으로 둘러보는 웹 프로토타입 · A web prototype for walking through a personal photo gallery in first person">
 
   <!-- iOS meta tags & icons -->
   <meta name="mobile-web-app-capable" content="yes">
@@ -29,12 +29,13 @@
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="favicon.png"/>
 
-  <!-- 카카오톡 등에서 링크가 카드로 보이게 하는 미리보기 정보. 서버가 없어서 초대마다 다르게 못 하므로 이 주소의 모든 초대에 같은 카드가 나온다.
-       카톡은 이미지를 주소별로 오래 기억하므로 카드 이미지를 바꿀 때는 파일 이름(_v2, _v3…)을 바꾼다. -->
+  <!-- 카카오톡 등에서 링크가 카드로 보이게 하는 미리보기 정보. 서버가 없어서 초대마다·받는 사람마다 다르게 못 하므로 이 주소의 모든 초대에 같은 카드가 나온다.
+       그래서 제목·설명은 한국어·영어 병기이고, 카드 이미지는 언어 글자 없이 영문 브랜드만 둔다.
+       카톡은 이미지를 주소별로 오래 기억하므로 카드 이미지를 바꿀 때는 파일 이름(_v3, _v4…)을 바꾼다. -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="포토리움 갤러리에 초대합니다">
-  <meta property="og:description" content="소중한 순간이 담긴 사진들을 직접 둘러보며 감상해 보세요.">
-  <meta property="og:image" content="https://gy-sheep.github.io/Dreamaru/photorium/invite_card_v2.png">
+  <meta property="og:title" content="포토리움 갤러리에 초대합니다 · You're invited to a Photorium gallery">
+  <meta property="og:description" content="소중한 순간이 담긴 사진들을 직접 둘러보며 감상해 보세요. Walk through a gallery of cherished photos.">
+  <meta property="og:image" content="https://gy-sheep.github.io/Dreamaru/photorium/invite_card_v3.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
@@ -66,15 +67,15 @@
 </head>
 <body>
 
-  <div id="invite-landing" aria-label="초대장">
+  <div id="invite-landing" aria-label="Invitation">
     <div class="frame"><div class="inner">
       <div class="eyebrow">PHOTORIUM · INVITATION</div>
-      <h1 class="names">갤러리에<br>초대합니다</h1>
+      <h1 class="names" id="t-title">갤러리에<br>초대합니다</h1>
       <div class="rule"></div>
-      <div class="lead">소중한 순간이 담긴 사진들을<br>직접 둘러보며 감상해 보세요</div>
+      <div class="lead" id="t-lead">소중한 순간이 담긴 사진들을<br>직접 둘러보며 감상해 보세요</div>
       <div class="deadline" id="invite-deadline"></div>
       <button type="button" id="invite-enter">갤러리 입장하기</button>
-      <div class="note">앱 설치 없이 바로 볼 수 있어요</div>
+      <div class="note" id="t-note">앱 설치 없이 바로 볼 수 있어요</div>
     </div></div>
   </div>
 
@@ -93,6 +94,17 @@
     (function () {
       if (!/[?&]invite=/.test(location.search)) return;
       var el = document.getElementById('invite-landing');
+      // 첫 화면 언어는 보는 사람의 브라우저 언어를 따른다(한국어면 한국어, 그 밖에는 영어). 앱 화면의 기기 언어 규칙과 같다.
+      var ko = /^ko/i.test(navigator.language || '');
+      var MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+      if (!ko) {
+        document.documentElement.lang = 'en';
+        document.getElementById('t-title').innerHTML = "You're invited<br>to the gallery";
+        document.getElementById('t-title').style.fontSize = '32px';
+        document.getElementById('t-lead').innerHTML = 'Walk through a gallery of<br>cherished photos, up close';
+        document.getElementById('invite-enter').textContent = 'Enter gallery';
+        document.getElementById('t-note').textContent = 'No app needed \u2014 view it right here';
+      }
       el.className = 'show';
       // 링크에 until(만료 시각, UTC 초)이 있으면 "○월 ○일 ○시까지 볼 수 있어요"를 보여 준다. 표시용일 뿐이고 실제로 막는 것은 초대 파일 안의 만료 시각이다.
       var m = /[?&]until=(\d{9,11})(?:[&#]|$)/.exec(location.search);
@@ -100,10 +112,18 @@
         var d = new Date(Number(m[1]) * 1000);
         if (d.getTime() > Date.now()) {
           var h = d.getHours(), min = d.getMinutes();
-          var t = (d.getMonth() + 1) + '월 ' + d.getDate() + '일 ' + (h < 12 ? '오전' : '오후') + ' ' +
-                  (h % 12 || 12) + '시' + (min ? ' ' + min + '분' : '');
+          var t, text;
+          if (ko) {
+            t = (d.getMonth() + 1) + '월 ' + d.getDate() + '일 ' + (h < 12 ? '오전' : '오후') + ' ' +
+                (h % 12 || 12) + '시' + (min ? ' ' + min + '분' : '');
+            text = t + '까지 볼 수 있어요';
+          } else {
+            t = MONTHS[d.getMonth()] + ' ' + d.getDate() + ', ' + (h % 12 || 12) +
+                (min ? ':' + (min < 10 ? '0' : '') + min : '') + ' ' + (h < 12 ? 'AM' : 'PM');
+            text = 'Available until ' + t;
+          }
           var box = document.getElementById('invite-deadline');
-          box.textContent = t + '까지 볼 수 있어요';
+          box.textContent = text;
           box.className = 'deadline on';
         }
       }

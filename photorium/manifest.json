@@ -5,7 +5,7 @@
     "display": "standalone",
     "background_color": "#1E1E22",
     "theme_color": "#1E1E22",
-    "description": "내 사진으로 꾸미는 나만의 갤러리",
+    "description": "내 사진으로 꾸미는 나만의 갤러리 · A personal photo gallery to walk through",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [
