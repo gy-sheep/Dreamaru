@@ -44,12 +44,12 @@
   <link rel="manifest" href="manifest.json">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600&display=swap">
   <style>
-  /* Flutter 엔진은 시작하면서 body를 이 스타일로 바꾼다(full_page_embedding_strategy.dart). 시작 전에는 스크롤되는 일반 페이지라
-     폰 브라우저가 그 순간 주소창·도구 막대 상태와 화면 높이를 바꿔, 가운데 정렬된 초대 첫 화면 카드가 위아래로 움직여 보였다(ISS-030).
-     처음부터 같은 스타일이면 시작 전후가 같아 움직이지 않는다. */
+  /* Flutter 엔진은 시작하면서 body를 이 스타일로 바꾼다(full_page_embedding_strategy.dart). 시작 전후가 달라지지 않게 처음부터 같은 스타일을 둔다. */
   body{position:fixed;top:0;right:0;bottom:0;left:0;overflow:hidden;padding:0;margin:0}
   /* 초대 링크 첫 화면: 링크에 ?invite=가 있을 때만 보인다. */
-  #invite-landing{position:fixed;inset:0;z-index:99999;display:none;align-items:center;justify-content:center;
+  #invite-landing{position:fixed;inset:0;z-index:99999;display:none;align-items:flex-start;justify-content:center;
+    /* 카드는 위쪽에서 잰 고정 위치에 둔다. 가운데 정렬은 폰 브라우저의 주소창·도구 막대가 나타나고 사라질 때마다 화면 높이가 바뀌어 카드가 위아래로 움직였다(ISS-030). lvh는 도구 막대를 접은 큰 화면 높이라 변하지 않는다. */
+    padding-top:max(24px,calc((100vh - 500px) / 2));padding-top:max(24px,calc((100lvh - 500px) / 2));
     background:#F4F2ED;color:#27261F;font-family:'Noto Serif KR','AppleMyungjo','Nanum Myeongjo',Georgia,serif;
     transition:opacity .5s ease}
   #invite-landing.show{display:flex}
