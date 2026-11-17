@@ -44,6 +44,10 @@
   <link rel="manifest" href="manifest.json">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600&display=swap">
   <style>
+  /* Flutter 엔진은 시작하면서 body를 이 스타일로 바꾼다(full_page_embedding_strategy.dart). 시작 전에는 스크롤되는 일반 페이지라
+     폰 브라우저가 그 순간 주소창·도구 막대 상태와 화면 높이를 바꿔, 가운데 정렬된 초대 첫 화면 카드가 위아래로 움직여 보였다(ISS-030).
+     처음부터 같은 스타일이면 시작 전후가 같아 움직이지 않는다. */
+  body{position:fixed;top:0;right:0;bottom:0;left:0;overflow:hidden;padding:0;margin:0}
   /* 초대 링크 첫 화면: 링크에 ?invite=가 있을 때만 보인다. */
   #invite-landing{position:fixed;inset:0;z-index:99999;display:none;align-items:center;justify-content:center;
     background:#F4F2ED;color:#27261F;font-family:'Noto Serif KR','AppleMyungjo','Nanum Myeongjo',Georgia,serif;
